@@ -122,6 +122,20 @@ func play_ui_sfx(sound_path: String) -> SodaSFX:
 
 
 ## New feature v1.3
+## Plays a random music from an array of sound paths.
+## Each music has an equal chance of being selected.
+func play_random_music(sound_paths: Array[String], loop := false) -> void:
+	if sound_paths.is_empty():
+		push_error("ERROR: The sound paths array cannot be empty.")
+		return
+
+	var random_index = randi_range(0, sound_paths.size() - 1)
+	var selected_path = sound_paths[random_index]
+
+	return play_music(selected_path, loop)
+
+
+## New feature v1.3
 ## Plays a random sound effect from an array of sound paths.
 ## Each sound has an equal chance of being selected.
 ## Returns the SodaSFX instance for chaining.
@@ -134,19 +148,6 @@ func play_random_sfx(sound_paths: Array[String]) -> SodaSFX:
 	var selected_path = sound_paths[random_index]
 
 	return play_sfx(selected_path)
-
-## New feature v1.3
-## Plays a random music from an array of sound paths.
-## Each music has an equal chance of being selected.
-func play_random_music(sound_paths: Array[String], loop := false) -> void:
-	if sound_paths.is_empty():
-		push_error("ERROR: The sound paths array cannot be empty.")
-		return
-
-	var random_index = randi_range(0, sound_paths.size() - 1)
-	var selected_path = sound_paths[random_index]
-
-	return play_music(selected_path, loop)
 
 
 ## New feature v1.3

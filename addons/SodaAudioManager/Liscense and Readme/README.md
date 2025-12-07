@@ -71,7 +71,7 @@ SodaAudioManager.stop_music(fade: bool, fade_duration: float = 1.0)
 #### Random Music Selection (New in v1.3)
 
 ```gdscript
-SodaAudioManager.play_random_sfx(soundPathArray: Array[String], loop: bool)
+SodaAudioManager.play_random_music(soundPathArray: Array[String], loop: bool)
 ```
 
 *Randomly selects and plays one background music from an array of sound paths.*
